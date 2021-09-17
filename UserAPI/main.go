@@ -48,8 +48,8 @@ func main() {
 
 	sig := <-sigChan
 	fmt.Println("Received Terminate signal. Shutting down. ", sig)
-	tc, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-	defer cancel()
+	tc, _ := context.WithTimeout(context.Background(), 30*time.Second)
+	
 	s.Shutdown(tc)
 
 }
